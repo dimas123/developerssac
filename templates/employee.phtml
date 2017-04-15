@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>List of employees</title>
+
+    <!-- Bootstrap -->
+    <!--
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    -->
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="http://getbootstrap.com/assets/css/docs.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<div class="bs-docs-header" id="content" tabindex="-1">
+    <div class="container">
+        <h1>Developers SAC</h1>
+        <p>
+            Pequeño prototipo de aplicación web que tiene como
+            finalidad registrar y evaluar a los empleados de la empresa Developers SAC
+        </p>
+    </div>
+</div>
+
+<div class="container bs-docs-container">
+    <div class="row">
+        <h1 class="page-header" id="overview">
+            <a class="anchorjs-link " href="#overview" aria-label="Anchor link for: overview" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; line-height: inherit; position: absolute; margin-left: -1em; padding-right: 0.5em;">
+
+            </a>
+            Employee list
+        </h1>
+
+        <form class="form-horizontal" action="/employee" method="get">
+            <div class="form-group has-success has-feedback">
+                <label class="control-label col-sm-3" for="address">Search Email</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" id="email" name="email" aria-describedby="inputSuccess3Status" value="<?php echo $data['email'];?>">
+                        <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                        <span id="inputSuccess3Status" class="sr-only">(success)</span>
+                    </div>
+                    <div class="col-sm-2">
+                        <button type="submit" class="btn btn-primary">Seach</button>
+                    </div>
+                    <div class="col-sm-2">
+                        <a class="btn btn-primary " href="/employee" aria-label="Anchor link for: overview" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; line-height: inherit; position: absolute; margin-left: -1em; padding-right: 0.5em;">
+                            Employee list
+                        </a>
+                    </div>
+                    <div class="col-sm-2">
+                        <a class="btn btn-primary " href="/employee/show" aria-label="Anchor link for: overview" data-anchorjs-icon="" style="font-family: anchorjs-icons; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: normal; line-height: inherit; position: absolute; margin-left: -1em; padding-right: 0.5em;">
+                            New Employee
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="bs-example" data-example-id="striped-table">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Position</th>
+                    <th>Salary</th>
+                    <th>Controls</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($employee as $key => $row):?>
+                    <tr>
+                        <th scope="row"> <?php echo ($key + 1); ?></th>
+                        <td><?php echo $row['name']; ?></td>
+                        <td><?php echo $row['email']; ?></td>
+                        <td><?php echo $row['position']; ?></td>
+                        <td><?php echo $row['salary']; ?></td>
+                        <td><a href="<?php echo '/employee/show/' . $row['id']; ?>" class="btn btn-primary btn-xs" role="button">Detail</a></td>
+                    </tr>
+                <?php endforeach;?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<footer class="bs-docs-footer">
+    <div class="container">
+        <ul class="bs-docs-footer-links">
+            <li><a href="https://github.com">GitHub</a></li>
+            <li><a href="https://www.slimframework.com/">Slem</a></li>
+            <li><a href="http://getbootstrap.com/">Bootstrap</a></li>
+        </ul>
+        <p>
+            Applicacion creado con slem framework php version 3.x
+        </p>
+    </div>
+</footer>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
